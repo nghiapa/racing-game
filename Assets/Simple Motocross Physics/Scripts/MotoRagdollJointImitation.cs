@@ -92,7 +92,7 @@ public class MotoRagdollJointImitation : MonoBehaviour
                 cj.enablePreprocessing = false;
                 trans.GetComponent<Rigidbody>().solverIterations = 4;
                 trans.GetComponent<Rigidbody>().mass = bodyPartMass;
-                trans.GetComponent<Rigidbody>().velocity = motoController.GetComponent<Rigidbody>().velocity * launchVelocityMultiplier;
+                trans.GetComponent<Rigidbody>().linearVelocity = motoController.GetComponent<Rigidbody>().linearVelocity * launchVelocityMultiplier;
                 trans.GetComponent<Rigidbody>().maxAngularVelocity = Mathf.Infinity;
             }
         }

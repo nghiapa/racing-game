@@ -35,9 +35,20 @@ namespace SMPScripts
         float smoothGearRatio;
         float turnAngleX, stuntModeBody, wheelieFactor;
 
+        public AutoGetIk autoGetIk;
+
+
+
         void Start()
         {
-            motoController = transform.root.GetComponent<MotoController>();
+            InitIK();
+        }
+
+        public void InitIK()
+        {
+            autoGetIk.GetIk();
+
+            motoController = transform.parent.GetComponent<MotoController>();
             motoAnimController = transform.GetComponent<MotoAnimController>();
             hipIKTarget = motoAnimController.hipIK.GetComponent<MultiParentConstraint>().data.sourceObjects[0].transform.gameObject;
             chestIKTarget = motoAnimController.chestIK.GetComponent<TwoBoneIKConstraint>().data.target.gameObject;
@@ -62,7 +73,6 @@ namespace SMPScripts
 
             initialChestRotationX = chestIKTarget.transform.eulerAngles.x;
             initialHipRotationX = hipIKTarget.transform.eulerAngles.x;
-
         }
 
         // Update is called once per frame
@@ -112,7 +122,7 @@ namespace SMPScripts
 
             //Head Target Position
             if(motoController.isAirborne && motoController.airTimeSettings.freestyle)
-                stuntModeHead = Vector3.Lerp(stuntModeHead, transform.InverseTransformDirection(motoController.rb.velocity),Time.deltaTime*2);
+                stuntModeHead = Vector3.Lerp(stuntModeHead, transform.InverseTransformDirection(motoController.rb.linearVelocity),Time.deltaTime*2);
             else
                 stuntModeHead = Vector3.Lerp(stuntModeHead,Vector3.zero,Time.deltaTime*2);
             wheelieFactor += motoController.wheelieInput&&motoController.wheeliePower>100?Time.deltaTime*2:-Time.deltaTime;

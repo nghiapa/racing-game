@@ -36,7 +36,7 @@ namespace SMPScripts
     [System.Serializable]
     public class WheelFrictionSettings
     {
-        public PhysicMaterial fPhysicMaterial, rPhysicMaterial;
+        public PhysicsMaterial fPhysicMaterial, rPhysicMaterial;
         public Vector2 fFriction, rFriction;
     }
     [System.Serializable]
@@ -133,19 +133,19 @@ namespace SMPScripts
         {
 
             //Physics based Steering Control.
-            motoGeometry.fPhysicsWheel.transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y + customSteerAxis * steerAngle.Evaluate(rb.velocity.magnitude), 0);
+            motoGeometry.fPhysicsWheel.transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y + customSteerAxis * steerAngle.Evaluate(rb.linearVelocity.magnitude), 0);
             fPhysicsWheelConfigJoint.axis = new Vector3(1, 0, 0);
 
             //Secondary FWheel
             if (motoGeometry.secondaryFVisualWheel && motoGeometry.secondaryFPhysicsWheel)
             {
-                motoGeometry.secondaryFPhysicsWheel.transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y + customSteerAxis * steerAngle.Evaluate(rb.velocity.magnitude), 0);
+                motoGeometry.secondaryFPhysicsWheel.transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y + customSteerAxis * steerAngle.Evaluate(rb.linearVelocity.magnitude), 0);
                 secondaryFPhysicsWheelConfigJoint.axis = new Vector3(1, 0, 0);
             }
 
 
             //cache rb velocity
-            float currentSpeed = rb.velocity.magnitude;
+            float currentSpeed = rb.linearVelocity.magnitude;
 
             // Center of Mass handling
             if (stuntMode)
@@ -176,7 +176,7 @@ namespace SMPScripts
             if (currentSpeed < engineSettings.reversingSpeed && rawCustomAccelerationAxis < 0 && !isAirborne)
                 rb.AddForce(-transform.forward * engineSettings.accelerationCurve.Evaluate(customAccelerationAxis) * 0.5f);
 
-            if (transform.InverseTransformDirection(rb.velocity).z < 0)
+            if (transform.InverseTransformDirection(rb.linearVelocity).z < 0)
                 isReversing = true;
             else
                 isReversing = false;
@@ -216,16 +216,16 @@ namespace SMPScripts
             if (Physics.Raycast(motoGeometry.fPhysicsWheel.transform.position, Vector3.down, out hit, Mathf.Infinity))
                 if (hit.distance < 0.5f)
                 {
-                    Vector3 velf = motoGeometry.fPhysicsWheel.transform.InverseTransformDirection(fWheelRb.velocity);
+                    Vector3 velf = motoGeometry.fPhysicsWheel.transform.InverseTransformDirection(fWheelRb.linearVelocity);
                     velf.x *= Mathf.Clamp01(1 / (wheelFrictionSettings.fFriction.x + wheelFrictionSettings.fFriction.y));
-                    fWheelRb.velocity = motoGeometry.fPhysicsWheel.transform.TransformDirection(velf);
+                    fWheelRb.linearVelocity = motoGeometry.fPhysicsWheel.transform.TransformDirection(velf);
                 }
             if (Physics.Raycast(motoGeometry.rPhysicsWheel.transform.position, Vector3.down, out hit, Mathf.Infinity))
                 if (hit.distance < 0.5f)
                 {
-                    Vector3 velr = motoGeometry.rPhysicsWheel.transform.InverseTransformDirection(rWheelRb.velocity);
+                    Vector3 velr = motoGeometry.rPhysicsWheel.transform.InverseTransformDirection(rWheelRb.linearVelocity);
                     velr.x *= Mathf.Clamp01(1 / (wheelFrictionSettings.rFriction.x + wheelFrictionSettings.rFriction.y));
-                    rWheelRb.velocity = motoGeometry.rPhysicsWheel.transform.TransformDirection(velr);
+                    rWheelRb.linearVelocity = motoGeometry.rPhysicsWheel.transform.TransformDirection(velr);
                 }
 
             //Secondary Wheel Friction Settings
@@ -235,9 +235,9 @@ namespace SMPScripts
                 if (Physics.Raycast(motoGeometry.secondaryFPhysicsWheel.transform.position, Vector3.down, out hit, Mathf.Infinity))
                     if (hit.distance < 0.5f)
                     {
-                        Vector3 velsf = motoGeometry.secondaryFPhysicsWheel.transform.InverseTransformDirection(secondaryFWheelRb.velocity);
+                        Vector3 velsf = motoGeometry.secondaryFPhysicsWheel.transform.InverseTransformDirection(secondaryFWheelRb.linearVelocity);
                         velsf.x *= Mathf.Clamp01(1 / (wheelFrictionSettings.fFriction.x + wheelFrictionSettings.fFriction.y));
-                        secondaryFWheelRb.velocity = motoGeometry.fPhysicsWheel.transform.TransformDirection(velsf);
+                        secondaryFWheelRb.linearVelocity = motoGeometry.fPhysicsWheel.transform.TransformDirection(velsf);
                     }
             }
 
@@ -275,22 +275,22 @@ namespace SMPScripts
             }
 
             //Impact sensing
-            deceleration = (fWheelRb.velocity - lastVelocity) / Time.fixedDeltaTime;
-            lastVelocity = fWheelRb.velocity;
+            deceleration = (fWheelRb.linearVelocity - lastVelocity) / Time.fixedDeltaTime;
+            lastVelocity = fWheelRb.linearVelocity;
             lastDeceleration = deceleration;
 
             //Wheelie
             //rb.centerOfMass = centerOfMassOffset + new Vector3(0,-wheelieFactor,-wheelieFactor*2);
             if(!isAirborne && wheelieInput && rawCustomAccelerationAxis>0)
             {
-                rb.angularDrag = 15;
+                rb.angularDamping = 15;
                 wheeliePower = customAccelerationAxis*150;
                 var rot = Quaternion.FromToRotation(transform.forward, new Vector3(transform.forward.x,0.6f,transform.forward.z));
                 rb.AddTorque(new Vector3(rot.x, rot.y, rot.z) * wheeliePower, ForceMode.Acceleration);
             }
             else
             {
-                rb.angularDrag = 1;
+                rb.angularDamping = 1;
             }
 
         }

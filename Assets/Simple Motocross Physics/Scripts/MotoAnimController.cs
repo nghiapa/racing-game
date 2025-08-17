@@ -41,7 +41,7 @@ namespace SMPScripts
         {
             if (characterGeometry != null && externalCharacter != null)
             {
-                if (Input.GetKeyDown(KeyCode.Return) && motoController.transform.InverseTransformDirection(motoController.rb.velocity).z <= 0.1f && waitTime == 0)
+                if (Input.GetKeyDown(KeyCode.Return) && motoController.transform.InverseTransformDirection(motoController.rb.linearVelocity).z <= 0.1f && waitTime == 0)
                 {
                     waitTime = 1.5f;
                     externalCharacter.transform.position = characterGeometry.transform.root.position - transform.right * 0.5f + transform.forward * 0.1f;
@@ -61,7 +61,7 @@ namespace SMPScripts
             waitTime -= Time.deltaTime;
             waitTime = Mathf.Clamp(waitTime, 0, 1.5f);
 
-            speed = motoController.transform.InverseTransformDirection(motoController.rb.velocity).z;
+            speed = motoController.transform.InverseTransformDirection(motoController.rb.linearVelocity).z;
             isAirborne = motoController.isAirborne;
             anim.SetFloat("Speed", speed);
             anim.SetBool("isAirborne", isAirborne);

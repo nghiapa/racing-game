@@ -26,7 +26,7 @@ namespace SMPScripts
         {
             if (motoController.rawCustomAccelerationAxis > 0 && !motoController.isAirborne)
             {
-                audioSource.pitch = (engineRPM.Evaluate(motoController.engineSettings.gearRatio + (motoController.engineSettings.currentGear) * 0.1f) + 1 + motoController.rb.velocity.magnitude*0.05f);
+                audioSource.pitch = (engineRPM.Evaluate(motoController.engineSettings.gearRatio + (motoController.engineSettings.currentGear) * 0.1f) + 1 + motoController.rb.linearVelocity.magnitude*0.05f);
 
                 audioSource.pitch = Mathf.Lerp(prevPitch, audioSource.pitch, Time.deltaTime * EngineFlow);
                 audioSource.volume = Mathf.Lerp(audioSource.volume, 1, Time.deltaTime * EngineFlow);

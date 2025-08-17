@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,6 +7,19 @@ public class EnumCollection
 {
 
 }
+
+public enum eRider
+{
+    char1, char2, char3, char4, char5
+}
+
+public enum ebike
+{
+    bike1, bike2, bike3, bike4, bike5, bike6
+
+}
+
+
 
 public enum EgameResource
 {

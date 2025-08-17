@@ -1,6 +1,7 @@
 using UnityEngine;
 using Sirenix.OdinInspector;
 using System.Collections.Generic;
+using Sirenix.Serialization;
 
 [CreateAssetMenu(fileName = "PlayerProfile", menuName = "Game/Player Profile")]
 public class PlayerProfile : SerializedScriptableObject
@@ -8,17 +9,10 @@ public class PlayerProfile : SerializedScriptableObject
     [Title("Player Info")]
     public string playerName;
 
-    [Range(1, 100)]
-    public int level = 1;
+    public Dictionary<EgameResource, int> bag = new Dictionary<EgameResource, int>();
 
-    [ProgressBar(0, 10000)]
-    public int experience;
-
-    [ReadOnly]
-    public int highScore;
-
-
-    public Dictionary<EgameResource, int> bag;
+    public eRider currentRider;
+    public ebike currentBike;
 
     public void AddResource(EgameResource resource, int amount)
     {
