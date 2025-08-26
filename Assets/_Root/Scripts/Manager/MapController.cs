@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class MapController : MonoBehaviour
 {
+
     public MotoCamera motoCamera;
     public MotoPerfectMouseLook motoPerfectMouseLook;
 
@@ -37,6 +38,8 @@ public class MapController : MonoBehaviour
 
         motoCamera.enabled = true;
         //motoPerfectMouseLook.enabled = true;
+
+
     }
 
 }

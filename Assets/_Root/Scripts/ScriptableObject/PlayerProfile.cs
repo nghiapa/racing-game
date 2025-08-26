@@ -14,6 +14,8 @@ public class PlayerProfile : SerializedScriptableObject
     public eRider currentRider;
     public ebike currentBike;
 
+
+
     public void AddResource(EgameResource resource, int amount)
     {
         if (bag == null)

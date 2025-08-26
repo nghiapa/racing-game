@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7355019223214247202, guid: 54b2a01e27bfc1a41aace438a116fcbf, type: 3}
       propertyPath: m_Name
-      value: Biker4
+      value: Bike4
       objectReference: {fileID: 0}
     - target: {fileID: 7355019223214247202, guid: 54b2a01e27bfc1a41aace438a116fcbf, type: 3}
       propertyPath: m_IsActive
@@ -64,7 +64,15 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7355019223214247202, guid: 54b2a01e27bfc1a41aace438a116fcbf, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4373109025195715909}
+    - targetCorrespondingSourceObject: {fileID: 7355019223214247202, guid: 54b2a01e27bfc1a41aace438a116fcbf, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7537382631873715268}
   m_SourcePrefab: {fileID: 100100000, guid: 54b2a01e27bfc1a41aace438a116fcbf, type: 3}
+--- !u!4 &670694730042603767 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8990979134323398367, guid: 54b2a01e27bfc1a41aace438a116fcbf, type: 3}
+  m_PrefabInstance: {fileID: 8469184779187777064}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1412671972205863690 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7355019223214247202, guid: 54b2a01e27bfc1a41aace438a116fcbf, type: 3}
@@ -104,6 +112,21 @@ MonoBehaviour:
   HeadIkTarget: {fileID: 2399297409582365661}
   RightFootIKHint: {fileID: 4281140299000259439}
   LeftFootIKHint: {fileID: 4281140299092995591}
+--- !u!114 &7537382631873715268
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1412671972205863690}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f24ecdb941f5d944eb5da3ff077e797b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fWheel: {fileID: 6997912091233997244}
+  bWheel: {fileID: 670694730042603767}
+  timer: 0
 --- !u!4 &2399297409025618774 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6108168516863352190, guid: 54b2a01e27bfc1a41aace438a116fcbf, type: 3}
@@ -152,6 +175,11 @@ Transform:
 --- !u!4 &5647593464050716061 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4316945408295068597, guid: 54b2a01e27bfc1a41aace438a116fcbf, type: 3}
+  m_PrefabInstance: {fileID: 8469184779187777064}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &6997912091233997244 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1483097524377501588, guid: 54b2a01e27bfc1a41aace438a116fcbf, type: 3}
   m_PrefabInstance: {fileID: 8469184779187777064}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &8082540137147134661 stripped

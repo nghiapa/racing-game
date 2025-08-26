@@ -63,7 +63,7 @@ namespace SMPScripts
         // The slider refers to the ratio of Relaxed mode to Top Speed. 
         // Torque is a physics based function which acts as the actual wheel driving force.
         public Vector3 centerOfMassOffset;
-        [HideInInspector]
+        
         public bool isReversing, isAirborne, stuntMode;
         [HideInInspector]
         public Rigidbody rb, fWheelRb, secondaryFWheelRb, rWheelRb;
@@ -244,7 +244,7 @@ namespace SMPScripts
             //AirControl
             if (Physics.Raycast(transform.position + new Vector3(0, 1f, 0), Vector3.down, out hit, Mathf.Infinity))
             {
-                if (hit.distance > 1.5f)
+                if (hit.distance > 3f)
                     isAirborne = true;
                 else
                     isAirborne = false;
@@ -285,7 +285,7 @@ namespace SMPScripts
             {
                 rb.angularDamping = 15;
                 wheeliePower = customAccelerationAxis*150;
-                var rot = Quaternion.FromToRotation(transform.forward, new Vector3(transform.forward.x,0.6f,transform.forward.z));
+                var rot = Quaternion.FromToRotation(transform.forward, new Vector3(transform.forward.x,1.5f,transform.forward.z));
                 rb.AddTorque(new Vector3(rot.x, rot.y, rot.z) * wheeliePower, ForceMode.Acceleration);
             }
             else
@@ -325,6 +325,16 @@ namespace SMPScripts
         float CustomInput(string name, ref float axis, float sensitivity, float gravity, bool isRaw)
         {
             var r = Input.GetAxisRaw(name);
+
+            Joystick joystick = GameManager.Instance.joystick;
+            if (joystick != null && Mathf.Abs(joystick.Direction.magnitude) > .2f)
+            {
+                if(name == "Horizontal")
+                    r = GameManager.Instance.joystick.Horizontal;
+                else if(name == "Vertical")
+                    r = GameManager.Instance.joystick.Vertical;
+            }
+
             var s = sensitivity;
             var g = gravity;
             var t = Time.unscaledDeltaTime;

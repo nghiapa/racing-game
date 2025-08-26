@@ -7,4 +7,10 @@ public class GameManager : Singleton<GameManager>
     public PlayerProfile playerProfile;
     public GameConfig gameConfig;
     public AssetCollection assetCollection;
+
+    public Joystick joystick;   
+
+    public EventManager eventManager;
+
+    public CommandManager commandManager;
 }

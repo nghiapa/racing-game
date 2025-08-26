@@ -1,15 +1,27 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class FreeModeView : MonoBehaviour
 {
     public GameObject pausePanel;
+    public Joystick joystick;
+    public TextMeshProUGUI money;
 
 
+    private void Start()
+    {
+        EventManager.Event_OnPlayerCointChange += (amt) =>
+        {
+
+            money.text = amt.ToString();
+        };
+    }
 
     private void OnEnable()
     {
-        pausePanel.SetActive(false); // Ensure the pause panel is hidden at the start
+        pausePanel.SetActive(false);
+        GameManager.Instance.joystick = joystick;
 
     }
 

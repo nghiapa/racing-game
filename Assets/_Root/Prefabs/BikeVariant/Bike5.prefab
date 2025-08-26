@@ -50,7 +50,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6468273225708450452, guid: f4c21b044d0d08743ae96fe43447a1ea, type: 3}
       propertyPath: m_Name
-      value: Biker5
+      value: Bike5
       objectReference: {fileID: 0}
     - target: {fileID: 6468273225708450452, guid: f4c21b044d0d08743ae96fe43447a1ea, type: 3}
       propertyPath: m_IsActive
@@ -64,7 +64,15 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6468273225708450452, guid: f4c21b044d0d08743ae96fe43447a1ea, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3010660445860313237}
+    - targetCorrespondingSourceObject: {fileID: 6468273225708450452, guid: f4c21b044d0d08743ae96fe43447a1ea, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7492292907338762869}
   m_SourcePrefab: {fileID: 100100000, guid: f4c21b044d0d08743ae96fe43447a1ea, type: 3}
+--- !u!4 &843572589761833060 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3117808632076910626, guid: f4c21b044d0d08743ae96fe43447a1ea, type: 3}
+  m_PrefabInstance: {fileID: 2373492264179984454}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1910538183965575965 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4211937643392623451, guid: f4c21b044d0d08743ae96fe43447a1ea, type: 3}
@@ -115,6 +123,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8156186040717197209, guid: f4c21b044d0d08743ae96fe43447a1ea, type: 3}
   m_PrefabInstance: {fileID: 2373492264179984454}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &7198901169220026671 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4834601947633084777, guid: f4c21b044d0d08743ae96fe43447a1ea, type: 3}
+  m_PrefabInstance: {fileID: 2373492264179984454}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8082997227667115943 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5826749191724279777, guid: f4c21b044d0d08743ae96fe43447a1ea, type: 3}
@@ -159,3 +172,18 @@ MonoBehaviour:
   HeadIkTarget: {fileID: 5468899906594832901}
   RightFootIKHint: {fileID: 5890920922204756663}
   LeftFootIKHint: {fileID: 5890920922296571871}
+--- !u!114 &7492292907338762869
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8733529272638003922}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f24ecdb941f5d944eb5da3ff077e797b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fWheel: {fileID: 843572589761833060}
+  bWheel: {fileID: 7198901169220026671}
+  timer: 0

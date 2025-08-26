@@ -138,6 +138,7 @@ namespace SMPScripts
 
             //Left Foot IK
             if (motoController.turnLeanAmount > 20 && !motoController.isAirborne)
+            if (motoController.turnLeanAmount > 20 && !motoController.isAirborne)
             {
                 leftFootIKTarget.transform.localPosition = Vector3.Lerp(Vector3.zero, new Vector3(-0.3f, 0, 0.3f) + impactDirection * 0.1f, ((Mathf.Abs(motoController.turnLeanAmount) - 20) * Mathf.Abs(motoController.customAccelerationAxis - 1)) * 0.5f) + leftFootInitialPos;
                 leftFootIKTarget.transform.localRotation = Quaternion.Lerp(leftFootInitialRot, Quaternion.Euler(-113, -117, 289), ((Mathf.Abs(motoController.turnLeanAmount) - 20) * Mathf.Abs(motoController.customAccelerationAxis - 1)) * 0.5f);
