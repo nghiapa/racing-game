@@ -10,7 +10,24 @@ public class GameManager : Singleton<GameManager>
 
     public Joystick joystick;   
 
-    public EventManager eventManager;
-
     public CommandManager commandManager;
+
+    public EGameState currentGameState = EGameState.start;
+
+
+    private void Start()
+    {
+        EventManager.Event_OnPlayerDie += () =>
+        {
+            currentGameState = EGameState.GameOver;
+            StartCoroutine(IeLoseGame());
+        };
+    }
+
+
+    IEnumerator IeLoseGame()
+    {
+        yield return new WaitForSeconds(gameConfig.DelayLoseTime);
+        UIManager.Instance.ShowLosePanel();
+    }
 }

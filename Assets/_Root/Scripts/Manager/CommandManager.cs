@@ -14,7 +14,6 @@ public class CommandManager : MonoBehaviour
         playerProfile = GameManager.Instance.playerProfile;
         assetCollection = GameManager.Instance.assetCollection;
         gameConfig = GameManager.Instance.gameConfig;
-        eventManager = GameManager.Instance.eventManager;
     }
 
     public void AddMoney(int amt)

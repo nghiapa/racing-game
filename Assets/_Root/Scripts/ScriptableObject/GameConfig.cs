@@ -8,6 +8,7 @@ public class GameConfig : SerializedScriptableObject
     public List<BikerInfo> bikers;
     public List<BikeInfo> bikes;
 
+    public float DelayLoseTime = 5f;
 }
 
 public class BikerInfo

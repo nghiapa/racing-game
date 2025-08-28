@@ -13,9 +13,10 @@ public class CityModeView : MonoBehaviour
     {
         EventManager.Event_OnPlayerCointChange += (amt) =>
         {
-
             money.text = amt.ToString();
         };
+        GameManager.Instance.currentGameState = EGameState.playing;
+
     }
 
     private void OnEnable()
@@ -29,18 +30,21 @@ public class CityModeView : MonoBehaviour
     {
         Time.timeScale = 0f; // Pause the game
         pausePanel.SetActive(true);
+        GameManager.Instance.currentGameState = EGameState.Pause;
     }
 
     public void OnClick_CloseSetting()
     {
         Time.timeScale = 1f; // Resume the game
         pausePanel.SetActive(false);
+        GameManager.Instance.currentGameState = EGameState.playing;
     }
 
     public void OnClick_BackToHome()
     {
         SceneManager.LoadScene("SplashScene");
         UIManager.Instance.OnClick_RaceBtn();
+        GameManager.Instance.currentGameState = EGameState.start;
     }
 
     public void Replay()

@@ -241,8 +241,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selectCarPanel: {fileID: 1907221176}
   selectScenePanel: {fileID: 467882257}
-  freeModeView: {fileID: 1215236550}
-  cityModeView: {fileID: 262701453}
+  freeModeView: {fileID: 1215236554}
+  cityModeView: {fileID: 1487068743}
   viewList:
   - {fileID: 1907221176}
   - {fileID: 467882257}
@@ -731,7 +731,6 @@ MonoBehaviour:
   gameConfig: {fileID: 11400000, guid: 221baad31ba8b2d499567fee67302702, type: 2}
   assetCollection: {fileID: 11400000, guid: c3dee64a097fbba4d81140441ab4b2b8, type: 2}
   joystick: {fileID: 0}
-  eventManager: {fileID: 214559945}
   commandManager: {fileID: 214559944}
 --- !u!114 &214559944
 MonoBehaviour:
@@ -2909,6 +2908,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 8917554021861917876, guid: f013a420d3975cc4ab0e87c9abf253ff, type: 3}
   m_PrefabInstance: {fileID: 408954275657351198}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1215236554 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2729648422324454070, guid: f013a420d3975cc4ab0e87c9abf253ff, type: 3}
+  m_PrefabInstance: {fileID: 408954275657351198}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1215236550}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d82f13d172a02c84b97328127b252c57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1250713421 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3899301395946865632, guid: f013a420d3975cc4ab0e87c9abf253ff, type: 3}
@@ -3418,6 +3428,8 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -3439,6 +3451,7 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
@@ -6197,6 +6210,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 51298843}
     m_Modifications:
+    - target: {fileID: 485711460722118783, guid: f013a420d3975cc4ab0e87c9abf253ff, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 812224377472027556, guid: f013a420d3975cc4ab0e87c9abf253ff, type: 3}
       propertyPath: m_Name
       value: FreeModeView

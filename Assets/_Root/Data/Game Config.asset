@@ -20,4 +20,11 @@ MonoBehaviour:
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
-    SerializationNodes: []
+    SerializationNodes:
+    - Name: bikers
+      Entry: 6
+      Data: 
+    - Name: bikes
+      Entry: 6
+      Data: 
+  DelayLoseTime: 1.5

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,8 +8,8 @@ public class UIManager : Singleton<UIManager>
 {
     public GameObject selectCarPanel;
     public GameObject selectScenePanel;
-    public GameObject freeModeView;
-    public GameObject cityModeView;
+    public FreeModeView freeModeView;
+    public CityModeView cityModeView;
 
     public List<GameObject> viewList;
 
@@ -34,13 +35,13 @@ public class UIManager : Singleton<UIManager>
     public void OnClick_FreeModeBtn()
     {
         CloseAllView();
-        freeModeView.SetActive(true);
+        freeModeView.gameObject.SetActive(true);
     }
 
     public void OnClick_CityModeBtn()
     {
         CloseAllView();
-        cityModeView.SetActive(true);
+        cityModeView.gameObject.SetActive(true);
     }
 
     public void CloseAllView()
@@ -53,5 +54,17 @@ public class UIManager : Singleton<UIManager>
     public void OnClick_Setting() 
     {
 
+    }
+
+    internal void ShowLosePanel()
+    {
+        if(freeModeView.gameObject.activeInHierarchy)
+        {
+            freeModeView.pausePanel.SetActive(true);
+        }
+        else if (cityModeView.gameObject.activeInHierarchy)
+        {
+            cityModeView.pausePanel.SetActive(true);
+        }
     }
 }

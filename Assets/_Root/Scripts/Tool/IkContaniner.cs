@@ -20,6 +20,7 @@ public class IkContaniner : MonoBehaviour
     public RigBuilder rigBuilder;
 
 
+
     [Button]
     public void GetIk()
     {

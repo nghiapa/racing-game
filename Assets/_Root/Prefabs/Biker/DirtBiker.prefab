@@ -3211,6 +3211,7 @@ GameObject:
   - component: {fileID: 7965094154879102101}
   - component: {fileID: 3488092489346184576}
   - component: {fileID: 5229282566525814282}
+  - component: {fileID: 3207690477395368829}
   m_Layer: 0
   m_Name: mixamorig:Head
   m_TagString: Untagged
@@ -3328,6 +3329,20 @@ CharacterJoint:
   m_EnablePreprocessing: 0
   m_MassScale: 1
   m_ConnectedMassScale: 1
+--- !u!114 &3207690477395368829
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7583334284865261965}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a87bf15042435864186d252ee632403f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CollisionController
+  StrengThreshold: 10
+  playerAnim: {fileID: 6850158030175121272}
 --- !u!1 &7873240225570287550
 GameObject:
   m_ObjectHideFlags: 0
@@ -3380,6 +3395,8 @@ SkinnedMeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -3402,6 +3419,7 @@ SkinnedMeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
