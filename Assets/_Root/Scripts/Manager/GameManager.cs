@@ -13,6 +13,8 @@ public class GameManager : Singleton<GameManager>
     public CommandManager commandManager;
 
     public EGameState currentGameState = EGameState.start;
+    public EGameMode currentGameMode = EGameMode.menu;
+
 
 
     private void Start()

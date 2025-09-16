@@ -285,7 +285,7 @@ namespace SMPScripts
             {
                 rb.angularDamping = 15;
                 wheeliePower = customAccelerationAxis*150;
-                var rot = Quaternion.FromToRotation(transform.forward, new Vector3(transform.forward.x,1.5f,transform.forward.z));
+                var rot = Quaternion.FromToRotation(transform.forward, new Vector3(transform.forward.x,.98f,transform.forward.z));
                 rb.AddTorque(new Vector3(rot.x, rot.y, rot.z) * wheeliePower, ForceMode.Acceleration);
             }
             else

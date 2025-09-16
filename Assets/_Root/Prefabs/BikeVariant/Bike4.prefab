@@ -8,6 +8,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7215087475110423211, guid: 54b2a01e27bfc1a41aace438a116fcbf, type: 3}
+      propertyPath: playerAnim
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 7355019223214247202, guid: 54b2a01e27bfc1a41aace438a116fcbf, type: 3}
       propertyPath: m_Name
       value: Bike4
@@ -100,6 +104,8 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes: []
   BikeType: 3
+  bikeName: Locomotive
+  bikePrice: 2500
   IkContainer: {fileID: 0}
   bikerPos: {fileID: 5647593464050716061}
   HipIkTarget: {fileID: 2399297410260787014}
@@ -112,6 +118,7 @@ MonoBehaviour:
   HeadIkTarget: {fileID: 2399297409582365661}
   RightFootIKHint: {fileID: 4281140299000259439}
   LeftFootIKHint: {fileID: 4281140299092995591}
+  motoController: {fileID: 0}
 --- !u!114 &7537382631873715268
 MonoBehaviour:
   m_ObjectHideFlags: 0

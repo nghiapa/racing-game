@@ -1,5 +1,6 @@
 using Sirenix.OdinInspector;
 using Sirenix.Serialization;
+using SMPScripts;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
@@ -9,6 +10,8 @@ using UnityEngine.Animations.Rigging;
 public class AutoGetIk : SerializedMonoBehaviour
 {
     public ebike BikeType;
+    public string bikeName;
+    public int bikePrice;
 
     public IkContaniner IkContainer;
     public Transform bikerPos;
@@ -26,6 +29,14 @@ public class AutoGetIk : SerializedMonoBehaviour
     public Transform RightFootIKHint;
     public Transform LeftFootIKHint;
 
+    public MotoController motoController;
+
+
+    public void Start()
+    {
+        if (motoController == null)
+            motoController = GetComponent<MotoController>();
+    }
 
     [Button]
     public void GetIk()
@@ -92,5 +103,11 @@ public class AutoGetIk : SerializedMonoBehaviour
                 return child;
         }
         return null;
+    }
+
+    public void OnPlayerDead()
+    {
+        motoController.enabled = false;
+        GetComponent<Rigidbody>().automaticCenterOfMass = true;
     }
 }

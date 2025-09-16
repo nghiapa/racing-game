@@ -56,6 +56,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6731386359769705661, guid: f4c21b044d0d08743ae96fe43447a1ea, type: 3}
+      propertyPath: playerAnim
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 9075314190523280679, guid: f4c21b044d0d08743ae96fe43447a1ea, type: 3}
@@ -160,6 +164,8 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes: []
   BikeType: 4
+  bikeName: Locomotive ver 3
+  bikePrice: 3000
   IkContainer: {fileID: 0}
   bikerPos: {fileID: 8082997227667115943}
   HipIkTarget: {fileID: 5468899906203723422}
@@ -172,6 +178,7 @@ MonoBehaviour:
   HeadIkTarget: {fileID: 5468899906594832901}
   RightFootIKHint: {fileID: 5890920922204756663}
   LeftFootIKHint: {fileID: 5890920922296571871}
+  motoController: {fileID: 0}
 --- !u!114 &7492292907338762869
 MonoBehaviour:
   m_ObjectHideFlags: 0

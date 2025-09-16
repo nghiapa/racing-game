@@ -56,6 +56,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8170949872501698920, guid: 18721073015058e43a64ec7b2476886d, type: 3}
+      propertyPath: playerAnim
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 8474759392590090539, guid: 18721073015058e43a64ec7b2476886d, type: 3}
@@ -100,6 +104,8 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes: []
   BikeType: 1
+  bikeName: racing model 2
+  bikePrice: 500
   IkContainer: {fileID: 0}
   bikerPos: {fileID: 985510111120103599}
   HipIkTarget: {fileID: 8602565565587918936}
@@ -112,6 +118,7 @@ MonoBehaviour:
   HeadIkTarget: {fileID: 8602565566232802499}
   RightFootIKHint: {fileID: 7874506490160016497}
   LeftFootIKHint: {fileID: 7874506490000171289}
+  motoController: {fileID: 0}
 --- !u!114 &370368073095856510
 MonoBehaviour:
   m_ObjectHideFlags: 0

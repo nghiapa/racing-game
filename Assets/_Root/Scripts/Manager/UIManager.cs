@@ -10,13 +10,22 @@ public class UIManager : Singleton<UIManager>
     public GameObject selectScenePanel;
     public FreeModeView freeModeView;
     public CityModeView cityModeView;
+    public LosePanel losePanel;
+    public SettingPanel settingPanel;
 
     public List<GameObject> viewList;
-
 
     private void Start()
     {
         OnClick_SelectCarBtn();
+    }
+
+    public void CloseAllView()
+    {
+        foreach (GameObject view in viewList)
+        {
+            view.SetActive(false);
+        }
     }
 
     public void OnClick_RaceBtn()
@@ -44,27 +53,18 @@ public class UIManager : Singleton<UIManager>
         cityModeView.gameObject.SetActive(true);
     }
 
-    public void CloseAllView()
-    {
-        foreach (GameObject view in viewList)
-        {
-            view.SetActive(false);
-        }
-    }
     public void OnClick_Setting() 
     {
-
+        CloseAllView();
+        settingPanel.gameObject.SetActive(true);
     }
 
-    internal void ShowLosePanel()
+    public void ShowLosePanel()
     {
-        if(freeModeView.gameObject.activeInHierarchy)
-        {
-            freeModeView.pausePanel.SetActive(true);
-        }
-        else if (cityModeView.gameObject.activeInHierarchy)
-        {
-            cityModeView.pausePanel.SetActive(true);
-        }
+        losePanel.gameObject.SetActive(true);
+        PlayerProfile playerProfile = GameManager.Instance.playerProfile;
+        losePanel.Show(playerProfile.bestTime,playerProfile.time,playerProfile.moneyEarned);
     }
+
+    
 }

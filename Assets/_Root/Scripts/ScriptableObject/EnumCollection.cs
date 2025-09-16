@@ -38,3 +38,10 @@ public enum EGameState
     GameOver,
     Win
 }
+
+public enum  EGameMode
+{
+    menu,
+    freeMode,
+    cityMode
+}

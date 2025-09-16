@@ -21,11 +21,18 @@ public class CommandManager : MonoBehaviour
         playerProfile.AddResource(EgameResource.money, amt);
 
         EventManager.Event_OnPlayerCointChange?.Invoke(playerProfile.bag[EgameResource.money]);
+        EventManager.Event_OnPlayerEarnRunCoin?.Invoke();
+
     }
 
     public void AddResorce(EgameResource egameResource,int amt)
     {
 
+    }
+
+    public void SaveData()
+    {
+        playerProfile.SaveData();
     }
 
 }

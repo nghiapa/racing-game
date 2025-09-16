@@ -8,6 +8,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4037038788834439772, guid: d34a24cb45c21cc489d6f0cd768446ec, type: 3}
+      propertyPath: playerAnim
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 4614691802589567906, guid: d34a24cb45c21cc489d6f0cd768446ec, type: 3}
       propertyPath: m_LocalPosition.x
       value: 114.93
@@ -114,6 +118,7 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes: []
   BikeType: 0
+  bikeName: blaze 110
   IkContainer: {fileID: 0}
   bikerPos: {fileID: 8205480963131111331}
   HipIkTarget: {fileID: 2319357801755813428}
@@ -126,6 +131,7 @@ MonoBehaviour:
   HeadIkTarget: {fileID: 2319357801092055727}
   RightFootIKHint: {fileID: 4185442206362982941}
   LeftFootIKHint: {fileID: 4185442206472492917}
+  motoController: {fileID: 0}
 --- !u!114 &-4262728008741228970
 MonoBehaviour:
   m_ObjectHideFlags: 0

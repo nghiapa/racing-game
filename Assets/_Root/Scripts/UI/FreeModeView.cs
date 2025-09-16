@@ -4,11 +4,17 @@ using UnityEngine.SceneManagement;
 
 public class FreeModeView : MonoBehaviour
 {
-    public GameObject pausePanel;
     public Joystick joystick;
     public TextMeshProUGUI money;
 
+    PlayerProfile playerProfile;
 
+
+    private void Awake()
+    {
+        playerProfile = GameManager.Instance.playerProfile;
+        money.text = playerProfile.GetResourceAmount(EgameResource.money).ToString();
+    }
     private void Start()
     {
         EventManager.Event_OnPlayerCointChange += (amt) =>
@@ -20,23 +26,15 @@ public class FreeModeView : MonoBehaviour
 
     private void OnEnable()
     {
-        pausePanel.SetActive(false);
         GameManager.Instance.joystick = joystick;
-
+        GameManager.Instance.currentGameMode = EGameMode.freeMode;
     }
 
     public void OnClick_Setting()
     {
         Time.timeScale = 0f; // Pause the game
-        pausePanel.SetActive(true);
+        UIManager.Instance.OnClick_Setting();
         GameManager.Instance.currentGameState = EGameState.Pause;
-    }
-
-    public void OnClick_CloseSetting()
-    {
-        Time.timeScale = 1f; // Resume the game
-        pausePanel.SetActive(false);
-        GameManager.Instance.currentGameState = EGameState.playing;
     }
 
     public void OnClick_BackToHome()
@@ -44,10 +42,13 @@ public class FreeModeView : MonoBehaviour
         SceneManager.LoadScene("SplashScene");
         UIManager.Instance.OnClick_RaceBtn();
         GameManager.Instance.currentGameState = EGameState.start;
+        this.gameObject.SetActive(false);
+
     }
 
     public void Replay()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        this.gameObject.SetActive(false);
     }
 }
