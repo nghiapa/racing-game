@@ -32,4 +32,8 @@ public class LosePanel : MonoBehaviour
         GameManager.Instance.currentGameState = EGameState.start;
         this.gameObject.SetActive(false);
     }
+    private void OnDisable()
+    {
+        Time.timeScale = 1f; // Resume the game
+    }
 }
