@@ -1027,6 +1027,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DirtBiker3
       objectReference: {fileID: 0}
+    - target: {fileID: 1082271958561512970, guid: a6a2053e16bb80e4f97ba620c51ee1b4, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1852576806548013000, guid: a6a2053e16bb80e4f97ba620c51ee1b4, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.000046871603

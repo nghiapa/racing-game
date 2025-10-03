@@ -1015,6 +1015,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DirtBiker5
       objectReference: {fileID: 0}
+    - target: {fileID: 1082271958561512970, guid: 3899720bcad39c544ba97752d085c78a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1630794972795428178, guid: 3899720bcad39c544ba97752d085c78a, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
