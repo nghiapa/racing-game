@@ -18,6 +18,7 @@ public class MapController : MonoBehaviour
     public AutoGetIk bike;
     int moneyEarnedThisRun = 0;
     float timeThisRun = 0;
+    Rigidbody rbBike;
 
 
     private void Start()
@@ -36,7 +37,7 @@ public class MapController : MonoBehaviour
         motoProceduralIKHandler.autoGetIk = bike;
 
         rider.GetComponent<MotoProceduralIKHandler>().InitIK();
-
+        rbBike = bike.GetComponent<Rigidbody>();
 
         motoCamera.enabled = true;
         EventManager.Event_OnPlayerDie += () =>
@@ -56,6 +57,15 @@ public class MapController : MonoBehaviour
     {
         if(GameManager.Instance.currentGameState != EGameState.playing) return;
         timeThisRun += Time.deltaTime;
+        //if (bike.motoController.engineSettings.currentGear == 1&& bike.motoController.engineSettings.gearRatio<.5f)
+        //{
+        //    bike.motoController.rb.constraints = RigidbodyConstraints.FreezeRotationY;
+        //}
+        //else
+        //{
+        //    bike.motoController.rb.constraints = RigidbodyConstraints.None;
+
+        //}
     }
 
     public void StopRun()
