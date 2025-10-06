@@ -63,7 +63,7 @@ namespace SMPScripts
         // The slider refers to the ratio of Relaxed mode to Top Speed. 
         // Torque is a physics based function which acts as the actual wheel driving force.
         public Vector3 centerOfMassOffset;
-        
+        //[HideInInspector]
         public bool isReversing, isAirborne, stuntMode;
         [HideInInspector]
         public Rigidbody rb, fWheelRb, secondaryFWheelRb, rWheelRb;
@@ -93,14 +93,16 @@ namespace SMPScripts
         public bool wheelieInput;
         [HideInInspector]
         public float wheeliePower;
+        Joystick joystick;
 
-        void Awake()
+       void Awake()
         {
             transform.rotation = Quaternion.Euler(0, transform.rotation.eulerAngles.y, 0);
         }
 
         void Start()
         {
+            joystick = GameManager.Instance.vehicleController.controlLeftRight;
             rb = GetComponent<Rigidbody>();
             rb.maxAngularVelocity = Mathf.Infinity;
 
@@ -317,24 +319,30 @@ namespace SMPScripts
                 CustomInput("Vertical", ref customAccelerationAxis, 1, 1, false);
                 CustomInput("Horizontal", ref customLeanAxis, steerControls.x, steerControls.y, false);
                 CustomInput("Vertical", ref rawCustomAccelerationAxis, 1, 1, true);
-                wheelieInput = Input.GetKey(KeyCode.LeftShift);
+                wheelieInput = GameManager.Instance.vehicleController.isWheelieInput;
             }
         }
 
         //Input Manager Controls
         float CustomInput(string name, ref float axis, float sensitivity, float gravity, bool isRaw)
         {
+            //var r = Input.GetAxisRaw(name);
+            //if (joystick != null && Mathf.Abs(joystick.Direction.magnitude) > .2f)
+            //{
+            //    if (name == "Horizontal")
+            //    {
+            //        r = GameManager.Instance.vehicleController.controlLeftRight.Horizontal;
+            //        Debug.Log(r);
+            //    }
+
+            //}
+            //if (name == "Vertical")
+            //{
+            //    r = GameManager.Instance.vehicleController.rateGas;
+            //}
+
+
             var r = Input.GetAxisRaw(name);
-
-            Joystick joystick = GameManager.Instance.joystick;
-            if (joystick != null && Mathf.Abs(joystick.Direction.magnitude) > .2f)
-            {
-                if(name == "Horizontal")
-                    r = GameManager.Instance.joystick.Horizontal;
-                else if(name == "Vertical")
-                    r = GameManager.Instance.joystick.Vertical;
-            }
-
             var s = sensitivity;
             var g = gravity;
             var t = Time.unscaledDeltaTime;

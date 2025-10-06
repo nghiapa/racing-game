@@ -4,7 +4,6 @@ using UnityEngine.SceneManagement;
 
 public class FreeModeView : MonoBehaviour
 {
-    public Joystick joystick;
     public TextMeshProUGUI money;
 
     PlayerProfile playerProfile;
@@ -26,7 +25,6 @@ public class FreeModeView : MonoBehaviour
 
     private void OnEnable()
     {
-        GameManager.Instance.joystick = joystick;
         GameManager.Instance.currentGameMode = EGameMode.freeMode;
     }
 

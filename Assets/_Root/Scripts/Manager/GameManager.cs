@@ -7,10 +7,8 @@ public class GameManager : Singleton<GameManager>
     public PlayerProfile playerProfile;
     public GameConfig gameConfig;
     public AssetCollection assetCollection;
-
-    public Joystick joystick;   
-
     public CommandManager commandManager;
+    public VehicleController vehicleController;
 
     public EGameState currentGameState = EGameState.start;
     public EGameMode currentGameMode = EGameMode.menu;

@@ -28,8 +28,7 @@ public class CityModeView : MonoBehaviour
 
     private void OnEnable()
     { 
-
-        GameManager.Instance.joystick = joystick; 
+        //GameManager.Instance.vehicleController.controlLeftRight = joystick; 
         GameManager.Instance.currentGameMode = EGameMode.cityMode;
     }
 
