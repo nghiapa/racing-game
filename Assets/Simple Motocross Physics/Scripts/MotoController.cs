@@ -134,14 +134,19 @@ namespace SMPScripts
         void FixedUpdate()
         {
 
+            float steerDir = customSteerAxis;
+
+            // Nếu đang đi lùi thì đảo hướng lái
+            if (isReversing)
+                steerDir = -customSteerAxis;
             //Physics based Steering Control.
-            motoGeometry.fPhysicsWheel.transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y + customSteerAxis * steerAngle.Evaluate(rb.linearVelocity.magnitude), 0);
+            motoGeometry.fPhysicsWheel.transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y + steerDir * steerAngle.Evaluate(rb.linearVelocity.magnitude), 0);
             fPhysicsWheelConfigJoint.axis = new Vector3(1, 0, 0);
 
             //Secondary FWheel
             if (motoGeometry.secondaryFVisualWheel && motoGeometry.secondaryFPhysicsWheel)
             {
-                motoGeometry.secondaryFPhysicsWheel.transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y + customSteerAxis * steerAngle.Evaluate(rb.linearVelocity.magnitude), 0);
+                motoGeometry.secondaryFPhysicsWheel.transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y + steerDir * steerAngle.Evaluate(rb.linearVelocity.magnitude), 0);
                 secondaryFPhysicsWheelConfigJoint.axis = new Vector3(1, 0, 0);
             }
 
@@ -153,7 +158,7 @@ namespace SMPScripts
             if (stuntMode)
                 rb.centerOfMass = GetComponent<BoxCollider>().center;
             else
-                rb.centerOfMass = centerOfMassOffset + new Vector3(0, 0, rawCustomAccelerationAxis > 0 && customSteerAxis == 0 ? 0.5f - (engineSettings.gearRatio - 1) * 0.5f : 0);
+                rb.centerOfMass = centerOfMassOffset + new Vector3(0, 0, rawCustomAccelerationAxis > 0 && steerDir == 0 ? 0.5f - (engineSettings.gearRatio - 1) * 0.5f : 0);
 
             //Gear Chnaging
             if (currGear != prevGear)
@@ -189,21 +194,21 @@ namespace SMPScripts
             pickUpSpeed = Mathf.Clamp(currentSpeed * 0.2f, 0, 1);
 
             //Handles
-            motoGeometry.handles.transform.localRotation = Quaternion.Euler(0, customSteerAxis * steerAngle.Evaluate(currentSpeed), -customSteerAxis * axisAngle) * initialHandlesRotation;
+            motoGeometry.handles.transform.localRotation = Quaternion.Euler(0, steerDir * steerAngle.Evaluate(currentSpeed), -steerDir * axisAngle) * initialHandlesRotation;
 
 
             //FWheelVisual
             motoGeometry.fVisualWheel.transform.position = new Vector3(motoGeometry.fPhysicsWheel.transform.position.x, motoGeometry.fPhysicsWheel.transform.position.y, motoGeometry.fPhysicsWheel.transform.position.z);
             xQuat = Mathf.Sin(Mathf.Deg2Rad * (transform.rotation.eulerAngles.y));
             zQuat = Mathf.Cos(Mathf.Deg2Rad * (transform.rotation.eulerAngles.y));
-            motoGeometry.fVisualWheel.transform.rotation = Quaternion.Euler(xQuat * (customSteerAxis * -axisAngle), customSteerAxis * steerAngle.Evaluate(currentSpeed), zQuat * (customSteerAxis * -axisAngle));
+            motoGeometry.fVisualWheel.transform.rotation = Quaternion.Euler(xQuat * (steerDir * -axisAngle), steerDir * steerAngle.Evaluate(currentSpeed), zQuat * (steerDir * -axisAngle));
             motoGeometry.fVisualWheel.transform.GetChild(0).transform.localRotation = motoGeometry.rPhysicsWheel.transform.rotation;
 
             //Secondary FWheelVisual
             if (motoGeometry.secondaryFVisualWheel && motoGeometry.secondaryFPhysicsWheel)
             {
                 motoGeometry.secondaryFVisualWheel.transform.position = new Vector3(motoGeometry.secondaryFPhysicsWheel.transform.position.x, motoGeometry.secondaryFPhysicsWheel.transform.position.y, motoGeometry.secondaryFPhysicsWheel.transform.position.z);
-                motoGeometry.secondaryFVisualWheel.transform.rotation = Quaternion.Euler(xQuat * (customSteerAxis * -axisAngle), customSteerAxis * steerAngle.Evaluate(currentSpeed), zQuat * (customSteerAxis * -axisAngle));
+                motoGeometry.secondaryFVisualWheel.transform.rotation = Quaternion.Euler(xQuat * (steerDir * -axisAngle), steerDir * steerAngle.Evaluate(currentSpeed), zQuat * (steerDir * -axisAngle));
                 motoGeometry.secondaryFVisualWheel.transform.GetChild(0).transform.localRotation = motoGeometry.rPhysicsWheel.transform.rotation;
             }
 
