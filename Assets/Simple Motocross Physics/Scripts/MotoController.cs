@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -326,39 +326,42 @@ namespace SMPScripts
         //Input Manager Controls
         float CustomInput(string name, ref float axis, float sensitivity, float gravity, bool isRaw)
         {
-            //var r = Input.GetAxisRaw(name);
-            //if (joystick != null && Mathf.Abs(joystick.Direction.magnitude) > .2f)
-            //{
-            //    if (name == "Horizontal")
-            //    {
-            //        r = GameManager.Instance.vehicleController.controlLeftRight.Horizontal;
-            //        Debug.Log(r);
-            //    }
-
-            //}
-            //if (name == "Vertical")
-            //{
-            //    r = GameManager.Instance.vehicleController.rateGas;
-            //}
-
-
             var r = Input.GetAxisRaw(name);
+
+            if (joystick != null && Mathf.Abs(joystick.Direction.magnitude) > 0.2f)
+            {
+                if (name == "Horizontal")
+                    r = GameManager.Instance.vehicleController.controlLeftRight.Horizontal;
+            }
+
+            if (name == "Vertical")
+                r = GameManager.Instance.vehicleController.rateGas;
+
             var s = sensitivity;
             var g = gravity;
             var t = Time.unscaledDeltaTime;
 
             if (isRaw)
+            {
                 axis = r;
+            }
             else
             {
-                if (r != 0)
-                    axis = Mathf.Clamp(axis + r * s * t, -1f, 1f);
+                if (Mathf.Abs(r) > 0.001f)
+                {
+                    // Thay vì cộng dồn, trượt mượt đến r
+                    axis = Mathf.MoveTowards(axis, r, s * t);
+                }
                 else
-                    axis = Mathf.Clamp01(Mathf.Abs(axis) - g * t) * Mathf.Sign(axis);
+                {
+                    // Trả dần về 0 khi không có input
+                    axis = Mathf.MoveTowards(axis, 0f, g * t);
+                }
             }
 
             return axis;
         }
+
 
         IEnumerator GearChange(float time)
         {
