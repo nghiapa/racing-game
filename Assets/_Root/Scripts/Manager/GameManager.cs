@@ -11,6 +11,7 @@ public class GameManager : Singleton<GameManager>
     public Joystick joystick;   
 
     public CommandManager commandManager;
+    public MapController mapController;
 
     public EGameState currentGameState = EGameState.start;
     public EGameMode currentGameMode = EGameMode.menu;

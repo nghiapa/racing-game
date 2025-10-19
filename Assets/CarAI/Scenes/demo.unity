@@ -296,7 +296,7 @@ GameObject:
   - component: {fileID: 324378206}
   - component: {fileID: 324378205}
   - component: {fileID: 324378204}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: sidewalk
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -331,8 +331,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_SerializedVersion: 0
-  m_OverrideArea: 0
-  m_Area: 0
+  m_OverrideArea: 1
+  m_Area: 1
   m_OverrideGenerateLinks: 0
   m_GenerateLinks: 0
   m_IgnoreFromBuild: 0
@@ -435,7 +435,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!54 &328663979
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -843,7 +843,7 @@ GameObject:
   - component: {fileID: 1106918704}
   - component: {fileID: 1106918703}
   - component: {fileID: 1106918702}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: platform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -961,7 +961,7 @@ GameObject:
   - component: {fileID: 1161190806}
   - component: {fileID: 1161190805}
   - component: {fileID: 1161190804}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: sidewalk (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -996,8 +996,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_SerializedVersion: 0
-  m_OverrideArea: 0
-  m_Area: 0
+  m_OverrideArea: 1
+  m_Area: 1
   m_OverrideGenerateLinks: 0
   m_GenerateLinks: 0
   m_IgnoreFromBuild: 0
@@ -1204,7 +1204,7 @@ GameObject:
   - component: {fileID: 1184753343}
   - component: {fileID: 1184753342}
   - component: {fileID: 1184753341}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: sidewalk (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1239,8 +1239,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_SerializedVersion: 0
-  m_OverrideArea: 0
-  m_Area: 0
+  m_OverrideArea: 1
+  m_Area: 1
   m_OverrideGenerateLinks: 0
   m_GenerateLinks: 0
   m_IgnoreFromBuild: 0
@@ -1535,7 +1535,7 @@ GameObject:
   - component: {fileID: 1354796573}
   - component: {fileID: 1354796572}
   - component: {fileID: 1354796571}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: sidewalk (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1570,8 +1570,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_SerializedVersion: 0
-  m_OverrideArea: 0
-  m_Area: 0
+  m_OverrideArea: 1
+  m_Area: 1
   m_OverrideGenerateLinks: 0
   m_GenerateLinks: 0
   m_IgnoreFromBuild: 0
@@ -1967,7 +1967,7 @@ GameObject:
   - component: {fileID: 1616975204}
   - component: {fileID: 1616975203}
   - component: {fileID: 1616975202}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: sidewalk (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2002,8 +2002,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_SerializedVersion: 0
-  m_OverrideArea: 0
-  m_Area: 0
+  m_OverrideArea: 1
+  m_Area: 1
   m_OverrideGenerateLinks: 0
   m_GenerateLinks: 0
   m_IgnoreFromBuild: 0
@@ -2290,7 +2290,7 @@ MonoBehaviour:
   m_Center: {x: 0, y: 2, z: 0}
   m_LayerMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 256
   m_UseGeometry: 0
   m_DefaultArea: 0
   m_GenerateLinks: 0
@@ -2299,7 +2299,7 @@ MonoBehaviour:
   m_OverrideTileSize: 0
   m_TileSize: 256
   m_OverrideVoxelSize: 0
-  m_VoxelSize: 0.16666667
+  m_VoxelSize: 0.59999996
   m_MinRegionArea: 2
   m_NavMeshData: {fileID: 23800000, guid: 874522897bee77c4c8638e103bf8970c, type: 2}
   m_BuildHeightMesh: 0
@@ -2331,7 +2331,7 @@ GameObject:
   - component: {fileID: 1846924162}
   - component: {fileID: 1846924161}
   - component: {fileID: 1846924160}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: sidewalk (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2366,8 +2366,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_SerializedVersion: 0
-  m_OverrideArea: 0
-  m_Area: 0
+  m_OverrideArea: 1
+  m_Area: 1
   m_OverrideGenerateLinks: 0
   m_GenerateLinks: 0
   m_IgnoreFromBuild: 0

@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -75,7 +75,6 @@ namespace SMPScripts
         [HideInInspector]
         public float customSteerAxis, customLeanAxis, customAccelerationAxis, rawCustomAccelerationAxis;
         bool isRaw;
-        [HideInInspector]
         public float currentTopSpeed, pickUpSpeed;
         Quaternion initialLowerForkLocalRotaion, initialHandlesRotation;
         ConfigurableJoint fPhysicsWheelConfigJoint, secondaryFPhysicsWheelConfigJoint, rPhysicsWheelConfigJoint;
@@ -167,6 +166,10 @@ namespace SMPScripts
             engineSettings.gearRatio = Mathf.Clamp01(engineSettings.gearRatio);
 
             //Power Control. Wheel Torque + Acceleration curves
+            Vector3 torque = transform.right * engineSettings.torque * customAccelerationAxis * Mathf.Clamp01(engineSettings.currentGear);
+            Vector3 forece = transform.forward * engineSettings.accelerationCurve.Evaluate(engineSettings.gearRatio);
+
+
             if (rawCustomAccelerationAxis > 0)
                 rWheelRb.AddTorque(transform.right * engineSettings.torque * customAccelerationAxis * Mathf.Clamp01(engineSettings.currentGear));
 
@@ -321,6 +324,41 @@ namespace SMPScripts
             }
         }
 
+        public Vector3 AiDirection;
+        public bool aiActive;
+        public float maxSpeedModify = 1.3f;
+
+
+        public void SetAiInput(Vector3 targetPos,Vector3 bikeDirection)
+        {
+
+            Vector3 wayDirection = (targetPos - transform.position).normalized;
+            Vector3 currentDirection = bikeDirection.normalized;
+            // Tính góc và hướng lệch (trái hoặc phải)
+            float angle = Vector3.SignedAngle(currentDirection, wayDirection, Vector3.up);
+
+            AiDirection.x = Mathf.Clamp(angle / 45f, -1f, 1f)* CustomDireciotnModify((targetPos - transform.position).magnitude,rb.linearVelocity.magnitude,currentTopSpeed); // -1 = rẽ trái mạnh, 1 = rẽ phải mạnh
+            AiDirection.z = .05f;
+            if (rb.linearVelocity.magnitude > currentTopSpeed)
+            {
+                AiDirection.z = 0;
+            }
+        }
+
+        float CustomDireciotnModify(float distanceToTarget, float currentSpeed, float maxSpeed)
+        {
+            float speedFactor = Mathf.Clamp01(distanceToTarget / (maxSpeed * 4));
+            if(distanceToTarget > (maxSpeed * 8))
+            {
+                speedFactor = .05f;
+            }
+            else
+            {
+                speedFactor = Mathf.Clamp01(currentSpeed/30);
+            }
+            return speedFactor;
+        }
+
         //Input Manager Controls
         float CustomInput(string name, ref float axis, float sensitivity, float gravity, bool isRaw)
         {
@@ -333,6 +371,15 @@ namespace SMPScripts
                     r = GameManager.Instance.joystick.Horizontal;
                 else if(name == "Vertical")
                     r = GameManager.Instance.joystick.Vertical;
+            }
+
+            // ai
+            if (aiActive)
+            {
+                if (name == "Horizontal")
+                    r = AiDirection.x;
+                else if (name == "Vertical")
+                    r = AiDirection.z;
             }
 
             var s = sensitivity;

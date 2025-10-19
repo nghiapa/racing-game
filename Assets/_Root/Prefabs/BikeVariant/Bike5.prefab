@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3734400888461536433
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3755895842596703604}
+  m_Layer: 0
+  m_Name: bikeFront
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3755895842596703604
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3734400888461536433}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.008, y: 0.253, z: 1.226}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8248459495301185640}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2373492264179984454
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -56,6 +87,22 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6468273225708450455, guid: f4c21b044d0d08743ae96fe43447a1ea, type: 3}
+      propertyPath: aiActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6468273225708450455, guid: f4c21b044d0d08743ae96fe43447a1ea, type: 3}
+      propertyPath: AiDirection.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6468273225708450455, guid: f4c21b044d0d08743ae96fe43447a1ea, type: 3}
+      propertyPath: AiDirection.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6468273225708450455, guid: f4c21b044d0d08743ae96fe43447a1ea, type: 3}
+      propertyPath: engineSettings.topSpeed
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 6731386359769705661, guid: f4c21b044d0d08743ae96fe43447a1ea, type: 3}
       propertyPath: playerAnim
       value: 
@@ -63,7 +110,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 9075314190523280679, guid: f4c21b044d0d08743ae96fe43447a1ea, type: 3}
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 5947069926680684590, guid: f4c21b044d0d08743ae96fe43447a1ea, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3755895842596703604}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 6468273225708450452, guid: f4c21b044d0d08743ae96fe43447a1ea, type: 3}
       insertIndex: -1
@@ -71,6 +121,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6468273225708450452, guid: f4c21b044d0d08743ae96fe43447a1ea, type: 3}
       insertIndex: -1
       addedObject: {fileID: 7492292907338762869}
+    - targetCorrespondingSourceObject: {fileID: 6468273225708450452, guid: f4c21b044d0d08743ae96fe43447a1ea, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -5730152445048551272}
   m_SourcePrefab: {fileID: 100100000, guid: f4c21b044d0d08743ae96fe43447a1ea, type: 3}
 --- !u!4 &843572589761833060 stripped
 Transform:
@@ -137,6 +190,22 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5826749191724279777, guid: f4c21b044d0d08743ae96fe43447a1ea, type: 3}
   m_PrefabInstance: {fileID: 2373492264179984454}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &8248459495301185640 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5947069926680684590, guid: f4c21b044d0d08743ae96fe43447a1ea, type: 3}
+  m_PrefabInstance: {fileID: 2373492264179984454}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8733529272638003921 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6468273225708450455, guid: f4c21b044d0d08743ae96fe43447a1ea, type: 3}
+  m_PrefabInstance: {fileID: 2373492264179984454}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8733529272638003922}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ee586723ec356d4da2640836dabeaa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8733529272638003922 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6468273225708450452, guid: f4c21b044d0d08743ae96fe43447a1ea, type: 3}
@@ -178,7 +247,8 @@ MonoBehaviour:
   HeadIkTarget: {fileID: 5468899906594832901}
   RightFootIKHint: {fileID: 5890920922204756663}
   LeftFootIKHint: {fileID: 5890920922296571871}
-  motoController: {fileID: 0}
+  motoController: {fileID: 8733529272638003921}
+  bikePathCreator: {fileID: -5730152445048551272}
 --- !u!114 &7492292907338762869
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -194,3 +264,25 @@ MonoBehaviour:
   fWheel: {fileID: 843572589761833060}
   bWheel: {fileID: 7198901169220026671}
   timer: 0
+--- !u!114 &-5730152445048551272
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8733529272638003922}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 263a8d5262826a943a20df4f6dc4cb30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BikePathCreator
+  waypoints: []
+  bikeFront: {fileID: 3755895842596703604}
+  destination: {fileID: 0}
+  NavMeshLayerBite: 1
+  AIFOV: 600
+  distanceToNextWayPoint: 5
+  currentWayPoint: 0
+  ShowGizmos: 1
+  Debugger: 0
+  motoController: {fileID: 8733529272638003921}

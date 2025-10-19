@@ -1,4 +1,6 @@
 using SMPScripts;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class MapController : MonoBehaviour
@@ -16,11 +18,19 @@ public class MapController : MonoBehaviour
 
     public IkContaniner rider;
     public AutoGetIk bike;
+
+    public List<Transform> mapRandomPos = new List<Transform>();
+
     int moneyEarnedThisRun = 0;
     float timeThisRun = 0;
     Rigidbody rbBike;
 
 
+
+    private void Awake()
+    {
+        GameManager.Instance.mapController = this;
+    }
     private void Start()
     {
         eRider eRider = playerProfile.currentRider;
@@ -40,6 +50,10 @@ public class MapController : MonoBehaviour
         rbBike = bike.GetComponent<Rigidbody>();
 
         motoCamera.enabled = true;
+
+        bike.bikePathCreator.SetDestination(GetRandomDestiantion());
+        StartCoroutine(IELoadAiPath());
+
         EventManager.Event_OnPlayerDie += () =>
         {
             StopRun();
@@ -51,6 +65,17 @@ public class MapController : MonoBehaviour
         {
             moneyEarnedThisRun += 1;
         };
+    }
+
+    IEnumerator IELoadAiPath()
+    {
+        yield return new WaitForSeconds(2f);
+        bike.bikePathCreator.CustomPath();
+    }
+
+    public Transform GetRandomDestiantion()
+    {
+        return mapRandomPos[Random.Range(0, mapRandomPos.Count)];
     }
 
     private void Update()

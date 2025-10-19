@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1704532989876939979
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 655543475121352487}
+  m_Layer: 0
+  m_Name: bikeFront
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &655543475121352487
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1704532989876939979}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.008, y: 0.253, z: 1.226}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1267100649037037799}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &5881429452801907525
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -53,12 +84,76 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5152140805086870596, guid: d34a24cb45c21cc489d6f0cd768446ec, type: 3}
+      propertyPath: aiActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5152140805086870596, guid: d34a24cb45c21cc489d6f0cd768446ec, type: 3}
       propertyPath: axisAngle
       value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 5152140805086870596, guid: d34a24cb45c21cc489d6f0cd768446ec, type: 3}
+      propertyPath: AiDirection.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5152140805086870596, guid: d34a24cb45c21cc489d6f0cd768446ec, type: 3}
+      propertyPath: AiDirection.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5152140805086870596, guid: d34a24cb45c21cc489d6f0cd768446ec, type: 3}
+      propertyPath: steerControls.x
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5152140805086870596, guid: d34a24cb45c21cc489d6f0cd768446ec, type: 3}
+      propertyPath: engineSettings.torque
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5152140805086870596, guid: d34a24cb45c21cc489d6f0cd768446ec, type: 3}
+      propertyPath: engineSettings.topSpeed
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5152140805086870596, guid: d34a24cb45c21cc489d6f0cd768446ec, type: 3}
       propertyPath: airTimeSettings.heightThreshold
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5152140805086870596, guid: d34a24cb45c21cc489d6f0cd768446ec, type: 3}
+      propertyPath: steerAngle.m_Curve.Array.data[1].time
+      value: 18.416656
+      objectReference: {fileID: 0}
+    - target: {fileID: 5152140805086870596, guid: d34a24cb45c21cc489d6f0cd768446ec, type: 3}
+      propertyPath: steerAngle.m_Curve.Array.data[1].value
+      value: 17.883331
+      objectReference: {fileID: 0}
+    - target: {fileID: 5152140805086870596, guid: d34a24cb45c21cc489d6f0cd768446ec, type: 3}
+      propertyPath: steerAngle.m_Curve.Array.data[0].inSlope
+      value: -0.38642567
+      objectReference: {fileID: 0}
+    - target: {fileID: 5152140805086870596, guid: d34a24cb45c21cc489d6f0cd768446ec, type: 3}
+      propertyPath: steerAngle.m_Curve.Array.data[1].inSlope
+      value: -0.38642567
+      objectReference: {fileID: 0}
+    - target: {fileID: 5152140805086870596, guid: d34a24cb45c21cc489d6f0cd768446ec, type: 3}
+      propertyPath: steerAngle.m_Curve.Array.data[0].outSlope
+      value: -0.38642567
+      objectReference: {fileID: 0}
+    - target: {fileID: 5152140805086870596, guid: d34a24cb45c21cc489d6f0cd768446ec, type: 3}
+      propertyPath: steerAngle.m_Curve.Array.data[1].outSlope
+      value: -0.38642567
+      objectReference: {fileID: 0}
+    - target: {fileID: 5152140805086870596, guid: d34a24cb45c21cc489d6f0cd768446ec, type: 3}
+      propertyPath: engineSettings.accelerationCurve.m_Curve.Array.data[1].time
+      value: 0.6199182
+      objectReference: {fileID: 0}
+    - target: {fileID: 5152140805086870596, guid: d34a24cb45c21cc489d6f0cd768446ec, type: 3}
+      propertyPath: engineSettings.accelerationCurve.m_Curve.Array.data[2].time
+      value: 1.0416565
+      objectReference: {fileID: 0}
+    - target: {fileID: 5152140805086870596, guid: d34a24cb45c21cc489d6f0cd768446ec, type: 3}
+      propertyPath: engineSettings.accelerationCurve.m_Curve.Array.data[1].value
+      value: 324.93124
+      objectReference: {fileID: 0}
+    - target: {fileID: 5152140805086870596, guid: d34a24cb45c21cc489d6f0cd768446ec, type: 3}
+      propertyPath: engineSettings.accelerationCurve.m_Curve.Array.data[2].value
+      value: 322.22443
       objectReference: {fileID: 0}
     - target: {fileID: 5422752943465185560, guid: d34a24cb45c21cc489d6f0cd768446ec, type: 3}
       propertyPath: m_Name
@@ -67,7 +162,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 5422752943108275949, guid: d34a24cb45c21cc489d6f0cd768446ec, type: 3}
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 4614691802589567906, guid: d34a24cb45c21cc489d6f0cd768446ec, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 655543475121352487}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 5422752943465185560, guid: d34a24cb45c21cc489d6f0cd768446ec, type: 3}
       insertIndex: -1
@@ -75,6 +173,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5422752943465185560, guid: d34a24cb45c21cc489d6f0cd768446ec, type: 3}
       insertIndex: -1
       addedObject: {fileID: -4262728008741228970}
+    - targetCorrespondingSourceObject: {fileID: 5422752943465185560, guid: d34a24cb45c21cc489d6f0cd768446ec, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -8063478265634164806}
   m_SourcePrefab: {fileID: 100100000, guid: d34a24cb45c21cc489d6f0cd768446ec, type: 3}
 --- !u!4 &2934725746622880 stripped
 Transform:
@@ -91,6 +192,22 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6748005091723731509, guid: d34a24cb45c21cc489d6f0cd768446ec, type: 3}
   m_PrefabInstance: {fileID: 5881429452801907525}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &1267100649037037799 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4614691802589567906, guid: d34a24cb45c21cc489d6f0cd768446ec, type: 3}
+  m_PrefabInstance: {fileID: 5881429452801907525}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1594023780466321153 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5152140805086870596, guid: d34a24cb45c21cc489d6f0cd768446ec, type: 3}
+  m_PrefabInstance: {fileID: 5881429452801907525}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1936114628601141853}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ee586723ec356d4da2640836dabeaa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1936114628601141853 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5422752943465185560, guid: d34a24cb45c21cc489d6f0cd768446ec, type: 3}
@@ -109,7 +226,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 2
+    SerializedFormat: 0
     SerializedBytes: 
     ReferencedUnityObjects: []
     SerializedBytesString: 
@@ -119,6 +236,7 @@ MonoBehaviour:
     SerializationNodes: []
   BikeType: 0
   bikeName: blaze 110
+  bikePrice: 0
   IkContainer: {fileID: 0}
   bikerPos: {fileID: 8205480963131111331}
   HipIkTarget: {fileID: 2319357801755813428}
@@ -131,7 +249,8 @@ MonoBehaviour:
   HeadIkTarget: {fileID: 2319357801092055727}
   RightFootIKHint: {fileID: 4185442206362982941}
   LeftFootIKHint: {fileID: 4185442206472492917}
-  motoController: {fileID: 0}
+  motoController: {fileID: 1594023780466321153}
+  bikePathCreator: {fileID: -8063478265634164806}
 --- !u!114 &-4262728008741228970
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -147,6 +266,28 @@ MonoBehaviour:
   fWheel: {fileID: 7519102263842285803}
   bWheel: {fileID: 2934725746622880}
   timer: 0
+--- !u!114 &-8063478265634164806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1936114628601141853}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 263a8d5262826a943a20df4f6dc4cb30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BikePathCreator
+  waypoints: []
+  bikeFront: {fileID: 655543475121352487}
+  destination: {fileID: 0}
+  NavMeshLayerBite: 1
+  AIFOV: 600
+  distanceToNextWayPoint: 5
+  currentWayPoint: 0
+  ShowGizmos: 1
+  Debugger: 0
+  motoController: {fileID: 1594023780466321153}
 --- !u!4 &2319357800709118110 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8191778670462583771, guid: d34a24cb45c21cc489d6f0cd768446ec, type: 3}
