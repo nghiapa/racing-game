@@ -8,6 +8,7 @@ public class GameManager : Singleton<GameManager>
     public GameConfig gameConfig;
     public AssetCollection assetCollection;
     public CommandManager commandManager;
+    public MapController mapController;
     public VehicleController vehicleController;
 
     public EGameState currentGameState = EGameState.start;

@@ -9,15 +9,15 @@ public class CollisionController : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.relativeVelocity.magnitude > StrengThreshold)
-        {
-            if (playerAnim == null) { 
-                playerAnim = GetComponentInParent<AutoGetIk>().IkContainer.GetComponent<Animator>();
-            }
+        //if (collision.relativeVelocity.magnitude > StrengThreshold)
+        //{
+        //    if (playerAnim == null) { 
+        //        playerAnim = GetComponentInParent<AutoGetIk>().IkContainer.GetComponent<Animator>();
+        //    }
 
-            if(GameManager.Instance.currentGameState != EGameState.playing) return;
-            playerAnim.enabled = false;
-            EventManager.Event_OnPlayerDie?.Invoke();
-        }
+        //    if(GameManager.Instance.currentGameState != EGameState.playing) return;
+        //    playerAnim.enabled = false;
+        //    EventManager.Event_OnPlayerDie?.Invoke();
+        //}
     }
 }

@@ -30,13 +30,8 @@ public class AutoGetIk : SerializedMonoBehaviour
     public Transform LeftFootIKHint;
 
     public MotoController motoController;
+    public BikePathCreator bikePathCreator;
 
-
-    public void Start()
-    {
-        if (motoController == null)
-            motoController = GetComponent<MotoController>();
-    }
 
     [Button]
     public void GetIk()
