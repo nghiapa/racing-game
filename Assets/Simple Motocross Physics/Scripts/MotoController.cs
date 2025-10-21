@@ -380,6 +380,14 @@ namespace SMPScripts
             if (name == "Vertical")
                 r = GameManager.Instance.vehicleController.rateGas;
 
+            if (aiActive)
+            {
+                if (name == "Horizontal")
+                    r = AiDirection.x;
+                else if (name == "Vertical")
+                    r = AiDirection.z;
+            }
+
             var s = sensitivity;
             var g = gravity;
             var t = Time.unscaledDeltaTime;
