@@ -89,7 +89,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6468273225708450455, guid: f4c21b044d0d08743ae96fe43447a1ea, type: 3}
       propertyPath: aiActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6468273225708450455, guid: f4c21b044d0d08743ae96fe43447a1ea, type: 3}
       propertyPath: AiDirection.x
@@ -98,6 +98,10 @@ PrefabInstance:
     - target: {fileID: 6468273225708450455, guid: f4c21b044d0d08743ae96fe43447a1ea, type: 3}
       propertyPath: AiDirection.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6468273225708450455, guid: f4c21b044d0d08743ae96fe43447a1ea, type: 3}
+      propertyPath: steerControls.x
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 6468273225708450455, guid: f4c21b044d0d08743ae96fe43447a1ea, type: 3}
       propertyPath: engineSettings.topSpeed
@@ -224,7 +228,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 2
+    SerializedFormat: 0
     SerializedBytes: 
     ReferencedUnityObjects: []
     SerializedBytesString: 
@@ -271,7 +275,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8733529272638003922}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 263a8d5262826a943a20df4f6dc4cb30, type: 3}
   m_Name: 

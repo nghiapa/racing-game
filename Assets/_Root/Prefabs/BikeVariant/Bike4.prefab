@@ -45,7 +45,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7355019223214247201, guid: 54b2a01e27bfc1a41aace438a116fcbf, type: 3}
       propertyPath: aiActive
-      value: 1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7355019223214247201, guid: 54b2a01e27bfc1a41aace438a116fcbf, type: 3}
+      propertyPath: axisAngle
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 7355019223214247201, guid: 54b2a01e27bfc1a41aace438a116fcbf, type: 3}
       propertyPath: AiDirection.x
@@ -159,7 +163,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 2
+    SerializedFormat: 0
     SerializedBytes: 
     ReferencedUnityObjects: []
     SerializedBytesString: 
@@ -206,7 +210,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1412671972205863690}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 263a8d5262826a943a20df4f6dc4cb30, type: 3}
   m_Name: 

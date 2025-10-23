@@ -49,7 +49,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4019563909569517407, guid: 18721073015058e43a64ec7b2476886d, type: 3}
       propertyPath: aiActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4019563909569517407, guid: 18721073015058e43a64ec7b2476886d, type: 3}
       propertyPath: AiDirection.x
@@ -195,7 +195,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2581280496020575424}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 263a8d5262826a943a20df4f6dc4cb30, type: 3}
   m_Name: 

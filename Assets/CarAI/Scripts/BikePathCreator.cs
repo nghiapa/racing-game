@@ -26,24 +26,24 @@ public class BikePathCreator : MonoBehaviour
 
     
 
-    private void Update()
-    {
-        if (waypoints.Count == 0) return;
+    //private void Update()
+    //{
+    //    if (waypoints.Count == 0) return;
 
-        motoController.SetAiInput(waypoints[currentWayPoint],bikeFront.forward);
-        if (Vector3.Distance(bikeFront.position, waypoints[currentWayPoint]) < distanceToNextWayPoint && waypoints.Count > 1)
-        {
-            if (currentWayPoint < waypoints.Count - 1)
-                currentWayPoint++;
-            else
-            {
-                destination = GameManager.Instance.mapController.GetRandomDestiantion();
-                currentWayPoint = 0;
-                waypoints.Clear();
-                CustomPath();
-            }
-        }
-    }
+    //    motoController.SetAiInput(waypoints[currentWayPoint],bikeFront.forward);
+    //    if (Vector3.Distance(bikeFront.position, waypoints[currentWayPoint]) < distanceToNextWayPoint && waypoints.Count > 1)
+    //    {
+    //        if (currentWayPoint < waypoints.Count - 1)
+    //            currentWayPoint++;
+    //        else
+    //        {
+    //            destination = GameManager.Instance.mapController.GetRandomDestiantion();
+    //            currentWayPoint = 0;
+    //            waypoints.Clear();
+    //            CustomPath();
+    //        }
+    //    }
+    //}
 
     public void SetDestination(Transform target)
     {

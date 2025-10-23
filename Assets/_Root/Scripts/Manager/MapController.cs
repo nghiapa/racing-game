@@ -21,6 +21,8 @@ public class MapController : MonoBehaviour
 
     public List<Transform> mapRandomPos = new List<Transform>();
 
+    public AIManager aiManager;
+
     int moneyEarnedThisRun = 0;
     float timeThisRun = 0;
     Rigidbody rbBike;
@@ -50,6 +52,7 @@ public class MapController : MonoBehaviour
         rbBike = bike.GetComponent<Rigidbody>();
 
         motoCamera.enabled = true;
+        motoCamera.SetTarget(bike.motoController.transform);
 
         bike.bikePathCreator.SetDestination(GetRandomDestiantion());
         StartCoroutine(IELoadAiPath());

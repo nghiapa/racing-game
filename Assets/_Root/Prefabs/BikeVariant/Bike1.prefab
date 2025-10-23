@@ -85,7 +85,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5152140805086870596, guid: d34a24cb45c21cc489d6f0cd768446ec, type: 3}
       propertyPath: aiActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5152140805086870596, guid: d34a24cb45c21cc489d6f0cd768446ec, type: 3}
       propertyPath: axisAngle
@@ -101,15 +101,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5152140805086870596, guid: d34a24cb45c21cc489d6f0cd768446ec, type: 3}
       propertyPath: steerControls.x
-      value: 5
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 5152140805086870596, guid: d34a24cb45c21cc489d6f0cd768446ec, type: 3}
       propertyPath: engineSettings.torque
-      value: 3
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 5152140805086870596, guid: d34a24cb45c21cc489d6f0cd768446ec, type: 3}
       propertyPath: engineSettings.topSpeed
-      value: 7
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 5152140805086870596, guid: d34a24cb45c21cc489d6f0cd768446ec, type: 3}
       propertyPath: airTimeSettings.heightThreshold
@@ -273,7 +273,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1936114628601141853}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 263a8d5262826a943a20df4f6dc4cb30, type: 3}
   m_Name: 

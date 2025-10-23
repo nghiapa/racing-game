@@ -318,7 +318,9 @@ namespace SMPScripts
             return groundZ;
 
         }
-
+        public Vector3 AiDirection;
+        public bool aiActive;
+        public float maxSpeedModify = 1.3f;
         void ApplyCustomInput()
         {
             if (GetComponent<MobileController>() == null)
@@ -327,29 +329,43 @@ namespace SMPScripts
                 CustomInput("Vertical", ref customAccelerationAxis, 1, 1, false);
                 CustomInput("Horizontal", ref customLeanAxis, steerControls.x, steerControls.y, false);
                 CustomInput("Vertical", ref rawCustomAccelerationAxis, 1, 1, true);
-                wheelieInput = GameManager.Instance.vehicleController.isWheelieInput;
+                if (aiActive)
+                {
+                    wheelieInput = isWheelieInputAI;
+                }
+                else
+                {
+                    wheelieInput = GameManager.Instance.vehicleController.isWheelieInput;
+                }
             }
         }
 
-        public Vector3 AiDirection;
-        public bool aiActive;
-        public float maxSpeedModify = 1.3f;
+  
 
 
-        public void SetAiInput(Vector3 targetPos,Vector3 bikeDirection)
+        //public void SetAiInput(Vector3 targetPos,Vector3 bikeDirection)
+        //{
+
+        //    Vector3 wayDirection = (targetPos - transform.position).normalized;
+        //    Vector3 currentDirection = bikeDirection.normalized;
+        //    // Tính góc và hướng lệch (trái hoặc phải)
+        //    float angle = Vector3.SignedAngle(currentDirection, wayDirection, Vector3.up);
+
+        //    AiDirection.x = Mathf.Clamp(angle / 45f, -1f, 1f)* CustomDireciotnModify((targetPos - transform.position).magnitude,rb.linearVelocity.magnitude,currentTopSpeed); // -1 = rẽ trái mạnh, 1 = rẽ phải mạnh
+        //    AiDirection.z = .05f;
+        //    if (rb.linearVelocity.magnitude > currentTopSpeed)
+        //    {
+        //        AiDirection.z = 0;
+        //    }
+        //}
+
+        float horizontalControlAI, rateGasAI;
+        bool isWheelieInputAI;
+        public void SetAiInput(float _horizontal,float _rateGas,bool _isWheelieInput)
         {
-
-            Vector3 wayDirection = (targetPos - transform.position).normalized;
-            Vector3 currentDirection = bikeDirection.normalized;
-            // Tính góc và hướng lệch (trái hoặc phải)
-            float angle = Vector3.SignedAngle(currentDirection, wayDirection, Vector3.up);
-
-            AiDirection.x = Mathf.Clamp(angle / 45f, -1f, 1f)* CustomDireciotnModify((targetPos - transform.position).magnitude,rb.linearVelocity.magnitude,currentTopSpeed); // -1 = rẽ trái mạnh, 1 = rẽ phải mạnh
-            AiDirection.z = .05f;
-            if (rb.linearVelocity.magnitude > currentTopSpeed)
-            {
-                AiDirection.z = 0;
-            }
+            horizontalControlAI = _horizontal;
+            rateGasAI = _rateGas;
+            isWheelieInputAI = _isWheelieInput;
         }
 
         float CustomDireciotnModify(float distanceToTarget, float currentSpeed, float maxSpeed)
@@ -371,22 +387,34 @@ namespace SMPScripts
         {
             var r = Input.GetAxisRaw(name);
 
-            if (joystick != null && Mathf.Abs(joystick.Direction.magnitude) > 0.2f)
-            {
-                if (name == "Horizontal")
-                    r = GameManager.Instance.vehicleController.controlLeftRight.Horizontal;
-            }
-
-            if (name == "Vertical")
-                r = GameManager.Instance.vehicleController.rateGas;
-
             if (aiActive)
             {
                 if (name == "Horizontal")
-                    r = AiDirection.x;
+                    r = horizontalControlAI;
                 else if (name == "Vertical")
-                    r = AiDirection.z;
+                    r = rateGasAI;
             }
+            else
+            {
+                if (joystick != null && Mathf.Abs(joystick.Direction.magnitude) > 0.2f)
+                {
+                    if (name == "Horizontal")
+                        r = GameManager.Instance.vehicleController.controlLeftRight.Horizontal;
+                }
+
+                if (name == "Vertical")
+                    r = GameManager.Instance.vehicleController.rateGas;
+            }
+
+           
+
+            //if (aiActive)
+            //{
+            //    if (name == "Horizontal")
+            //        r = AiDirection.x;
+            //    else if (name == "Vertical")
+            //        r = AiDirection.z;
+            //}
 
             var s = sensitivity;
             var g = gravity;

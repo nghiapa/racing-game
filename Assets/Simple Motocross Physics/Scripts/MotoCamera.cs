@@ -31,15 +31,13 @@ namespace SMPScripts
         private float zVelocity = 0.0F;
         MotoPerfectMouseLook perfectMouseLook;
 
-
-
-        void Start()
+        public void SetTarget(Transform moto)
         {
             perfectMouseLook = GetComponent<MotoPerfectMouseLook>();
             if (stuntCamera)
             {
                 var follow = new GameObject("Follow");
-                var toFollow = GameObject.FindObjectOfType<MotoController>().transform;
+                var toFollow = moto;
                 follow.transform.SetParent(toFollow);
                 follow.transform.position = toFollow.position + toFollow.gameObject.GetComponent<BoxCollider>().center;
                 target = follow.transform;
@@ -48,7 +46,7 @@ namespace SMPScripts
                 lookAtHeight -= toFollow.gameObject.GetComponent<BoxCollider>().center.y;
             }
             else
-                target = GameObject.FindObjectOfType<MotoController>().transform;
+                target = moto;
         }
 
         void LateUpdate()
